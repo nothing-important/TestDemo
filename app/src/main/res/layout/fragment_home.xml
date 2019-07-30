@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/bar_status"/>
+    <com.daimajia.slider.library.SliderLayout
+        android:id="@+id/home_slider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x372"/>
+    <com.daimajia.slider.library.Indicators.PagerIndicator
+        android:id="@+id/home_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x10"
+        android:gravity="center"
+        custom:selected_drawable="@mipmap/indicator_select"
+        custom:unselected_drawable="@mipmap/indicator_unselect"
+        custom:selected_padding_left="3dp"
+        custom:selected_padding_right="3dp"
+        custom:unselected_padding_left="3dp"
+        custom:unselected_padding_right="3dp"
+        />
+</LinearLayout>
