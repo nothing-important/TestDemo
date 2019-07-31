@@ -1,6 +1,8 @@
 package com.example.nothing.testdemo.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.LinearLayout;
 
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.Indicators.PagerIndicator;
@@ -9,11 +11,21 @@ import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.example.nothing.testdemo.R;
+import com.example.nothing.testdemo.adapter.AdapterHome;
+import com.example.nothing.testdemo.adapter.AdapterHomeNews;
 import com.example.nothing.testdemo.api.ConstantsAPI;
 import com.example.nothing.testdemo.base.BaseFragment;
+import com.example.nothing.testdemo.bean.BeanIcon;
+import com.example.nothing.testdemo.bean.BeanNews;
+import com.example.nothing.testdemo.weight.DescriptionAnimation1;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 
 public class HomeFragment extends BaseFragment implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
@@ -22,8 +34,16 @@ public class HomeFragment extends BaseFragment implements BaseSliderView.OnSlide
     SliderLayout homeSlider;
     @BindView(R.id.home_indicator)
     PagerIndicator homeIndicator;
+    @BindView(R.id.home_recycler)
+    RecyclerView homeRecycler;
+    @BindView(R.id.home_recycler_news)
+    RecyclerView homeRecyclerNews;
 
     private HashMap<String , String> sliderData = new HashMap<>();
+    private AdapterHome adapterHome;
+    private AdapterHomeNews adapterHomeNews;
+    private List<BeanIcon> selectedIconData = new ArrayList<>();
+    private List<BeanNews> newsData = new ArrayList<>();
 
     @Override
     protected int setLayoutId() {
@@ -36,24 +56,42 @@ public class HomeFragment extends BaseFragment implements BaseSliderView.OnSlide
             TextSliderView textSliderView = new TextSliderView(getActivity());
             textSliderView
                     .image(sliderData.get(name))
-                    .setScaleType(BaseSliderView.ScaleType.Fit)
+                    .setScaleType(BaseSliderView.ScaleType.CenterCrop)
                     .setOnSliderClickListener(this);
             textSliderView.bundle(new Bundle());
             textSliderView.getBundle()
                     .putString("extra",name);
-
+            Log.e("ooo", "initView: "+sliderData.get(name));
             homeSlider.addSlider(textSliderView);
         }
         homeSlider.setPresetTransformer(SliderLayout.Transformer.Accordion);
         homeSlider.setCustomIndicator(homeIndicator);
-        homeSlider.setCustomAnimation(new DescriptionAnimation());
+        homeSlider.setCustomAnimation(new DescriptionAnimation1());
         homeSlider.setDuration(4000);
         homeSlider.addOnPageChangeListener(this);
+        initRecycler();
+    }
+
+    private void initRecycler() {
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity() , 4);
+        homeRecycler.setLayoutManager(gridLayoutManager);
+        homeRecycler.setHasFixedSize(true);
+        homeRecycler.setNestedScrollingEnabled(false);
+        adapterHome = new AdapterHome(selectedIconData , getActivity());
+        homeRecycler.setAdapter(adapterHome);
+        LinearLayoutManager linearLayout = new LinearLayoutManager(getActivity());
+        homeRecyclerNews.setLayoutManager(linearLayout);
+        homeRecyclerNews.setHasFixedSize(true);
+        homeRecyclerNews.setNestedScrollingEnabled(false);
+        adapterHomeNews = new AdapterHomeNews(newsData , getActivity());
+        homeRecyclerNews.setAdapter(adapterHomeNews);
     }
 
     @Override
     protected void initData() {
         sliderData = ConstantsAPI.getSliderData();
+        selectedIconData = ConstantsAPI.getIconSelectedData();
+        newsData = ConstantsAPI.getNewsData();
     }
 
     @Override

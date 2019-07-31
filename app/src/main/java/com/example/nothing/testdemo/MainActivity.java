@@ -1,8 +1,6 @@
 package com.example.nothing.testdemo;
 
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
@@ -12,6 +10,7 @@ import com.example.nothing.testdemo.fragment.DriveFragment;
 import com.example.nothing.testdemo.fragment.HomeFragment;
 import com.example.nothing.testdemo.fragment.MeFragment;
 
+import androidx.fragment.app.FragmentTransaction;
 import butterknife.BindView;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -28,7 +27,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private HomeFragment homeFragment;
     private DriveFragment driveFragment;
     private MeFragment meFragment;
-    private FragmentTransaction transaction;
 
     @Override
     protected int setLayoutId() {
@@ -42,7 +40,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initData() {
-        transaction = getSupportFragmentManager().beginTransaction();
     }
 
     @Override
@@ -70,44 +67,50 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void switchFragment(int value){
         switch (value){
             case 0:
-                hideFragment();
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                hideFragment(fragmentTransaction);
                 if (homeFragment == null){
                     homeFragment = new HomeFragment();
-                    transaction.add(R.id.container , homeFragment);
+                    fragmentTransaction.add(R.id.container , homeFragment);
                 }else {
-                    transaction.show(homeFragment);
+                    fragmentTransaction.show(homeFragment);
                 }
+                fragmentTransaction.commit();
                 break;
             case 1:
-                hideFragment();
+                FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
+                hideFragment(fragmentTransaction1);
                 if (driveFragment == null){
                     driveFragment = new DriveFragment();
-                    transaction.add(R.id.container , driveFragment);
+                    fragmentTransaction1.add(R.id.container , driveFragment);
                 }else {
-                    transaction.show(driveFragment);
+                    fragmentTransaction1.show(driveFragment);
                 }
+                fragmentTransaction1.commit();
                 break;
             case 2:
-                hideFragment();
+                FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
+                hideFragment(fragmentTransaction2);
                 if (meFragment == null){
                     meFragment = new MeFragment();
-                    transaction.add(R.id.container , meFragment);
+                    fragmentTransaction2.add(R.id.container , meFragment);
                 }else {
-                    transaction.show(meFragment);
+                    fragmentTransaction2.show(meFragment);
                 }
+                fragmentTransaction2.commit();
                 break;
         }
     }
 
-    private void hideFragment(){
+    private void hideFragment(FragmentTransaction fragmentTransaction){
         if (homeFragment != null){
-            transaction.hide(homeFragment);
+            fragmentTransaction.hide(homeFragment);
         }
         if (driveFragment != null){
-            transaction.hide(driveFragment);
+            fragmentTransaction.hide(driveFragment);
         }
         if (meFragment != null){
-            transaction.hide(meFragment);
+            fragmentTransaction.hide(meFragment);
         }
     }
 }

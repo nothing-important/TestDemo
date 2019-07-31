@@ -2,11 +2,11 @@ package com.example.nothing.testdemo.base;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 
 import com.example.nothing.testdemo.R;
 import com.example.nothing.testdemo.utils.StatusBarUtil;
 
+import androidx.fragment.app.FragmentActivity;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -17,9 +17,9 @@ public abstract class BaseActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        unbinder = ButterKnife.bind(this);
         setStatusBarColor();
         setContentView(setLayoutId());
+        unbinder = ButterKnife.bind(this);
         initData();
         initView();
         setListener();
