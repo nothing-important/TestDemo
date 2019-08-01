@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/bar_title"/>
+    <FrameLayout
+        android:id="@+id/work_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x1"
+        android:background="#DCDCDC"/>
+    <RadioGroup
+        android:layout_marginTop="@dimen/x20"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x96"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/work_attendance"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:drawableTop="@drawable/work_attendance_selector"
+            android:gravity="center"
+            android:text="打卡"
+            android:textStyle="bold"
+            android:textColor="#6B6C6D"
+            android:textSize="@dimen/x28"/>
+        <RadioButton
+            android:id="@+id/work_statistics"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:drawableTop="@drawable/work_statistics_selector"
+            android:gravity="center"
+            android:text="统计"
+            android:textStyle="bold"
+            android:textColor="#6B6C6D"
+            android:textSize="@dimen/x28"/>
+    </RadioGroup>
+</LinearLayout>
