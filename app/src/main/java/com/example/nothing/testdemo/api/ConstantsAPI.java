@@ -1,6 +1,7 @@
 package com.example.nothing.testdemo.api;
 
 import com.example.nothing.testdemo.R;
+import com.example.nothing.testdemo.base.BeanPhone;
 import com.example.nothing.testdemo.bean.BeanIcon;
 import com.example.nothing.testdemo.bean.BeanNews;
 
@@ -56,6 +57,27 @@ public class ConstantsAPI {
         dataList.add(new BeanNews("http://pic13.nipic.com/20110425/668573_150157400119_2.jpg" , "园区运营管控一体化" , "典型围绕智慧园区提供智能化、智慧化、便捷化、流程化的智慧园区全新体验....." , "886" , "2019-6-27   11:00"));
         dataList.add(new BeanNews("http://pic13.nipic.com/20110425/668573_150157400119_2.jpg" , "园区运营管控一体化" , "典型围绕智慧园区提供智能化、智慧化、便捷化、流程化的智慧园区全新体验....." , "886" , "2019-6-27   11:00"));
         dataList.add(new BeanNews("http://pic13.nipic.com/20110425/668573_150157400119_2.jpg" , "园区运营管控一体化" , "典型围绕智慧园区提供智能化、智慧化、便捷化、流程化的智慧园区全新体验....." , "886" , "2019-6-27   11:00"));
+        return dataList;
+    }
+
+    public static ArrayList<BeanPhone> getPhoneData(){
+        ArrayList<BeanPhone> dataList = new ArrayList<>();
+        dataList.add(new BeanPhone(true , "致远科技有限公司      156人" , ""));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(true , "技术部" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(true , "市场部" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
         return dataList;
     }
 

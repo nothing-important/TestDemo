@@ -12,6 +12,8 @@ import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.example.nothing.testdemo.R;
 import com.example.nothing.testdemo.activity.AccessControlActivity;
 import com.example.nothing.testdemo.activity.FileControlActivity;
+import com.example.nothing.testdemo.activity.PhoneActivity;
+import com.example.nothing.testdemo.activity.WorkAttendanceActivity;
 import com.example.nothing.testdemo.adapter.AdapterHome;
 import com.example.nothing.testdemo.adapter.AdapterHomeNews;
 import com.example.nothing.testdemo.api.ConstantsAPI;
@@ -130,6 +132,10 @@ public class HomeFragment extends BaseFragment implements BaseSliderView.OnSlide
             intent = new Intent(getActivity() , AccessControlActivity.class);
         }else if (name.equals("文件管理")){
             intent = new Intent(getActivity() , FileControlActivity.class);
+        }else if (name.equals("考勤打卡")){
+            intent = new Intent(getActivity() , WorkAttendanceActivity.class);
+        }else if (name.equals("通讯录")){
+            intent = new Intent(getActivity() , PhoneActivity.class);
         }
         if (intent == null){
             return;
