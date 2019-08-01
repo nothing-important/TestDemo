@@ -1,11 +1,13 @@
 package com.example.nothing.testdemo.fragment;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.nothing.testdemo.R;
+import com.example.nothing.testdemo.activity.SettingActivity;
 import com.example.nothing.testdemo.base.BaseFragment;
 
 import butterknife.BindView;
@@ -56,7 +58,8 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
 
                 break;
             case R.id.me_setting:
-
+                Intent intent = new Intent(getActivity() , SettingActivity.class);
+                startActivity(intent);
                 break;
         }
     }

@@ -35,7 +35,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initView() {
-
+        showFirstFragment();
     }
 
     @Override
@@ -112,5 +112,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         if (meFragment != null){
             fragmentTransaction.hide(meFragment);
         }
+    }
+
+    private void showFirstFragment(){
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        hideFragment(fragmentTransaction);
+        if (homeFragment == null){
+            homeFragment = new HomeFragment();
+            fragmentTransaction.add(R.id.container , homeFragment);
+        }else {
+            fragmentTransaction.show(homeFragment);
+        }
+        fragmentTransaction.commit();
     }
 }

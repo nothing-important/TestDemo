@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:gravity="center"
+    android:id="@+id/home_recycler_container"
     android:paddingTop="@dimen/x25"
     android:paddingBottom="@dimen/x25"
     android:layout_width="match_parent"

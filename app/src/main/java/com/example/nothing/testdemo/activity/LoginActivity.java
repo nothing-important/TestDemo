@@ -14,6 +14,7 @@ import com.example.nothing.testdemo.MainActivity;
 import com.example.nothing.testdemo.R;
 import com.example.nothing.testdemo.api.ConstantsAPI;
 import com.example.nothing.testdemo.base.BaseActivity;
+import com.example.nothing.testdemo.storage.UserCache;
 import com.example.nothing.testdemo.utils.ToastU;
 
 import butterknife.BindView;
@@ -31,6 +32,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @BindView(R.id.login_login)
     TextView loginLogin;
     private boolean isHide = true;
+    private UserCache userCache;
 
     @Override
     protected int setLayoutId() {
@@ -44,7 +46,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     @Override
     protected void initData() {
-
+        userCache = UserCache.getUserCache(this);
     }
 
     @Override
@@ -61,14 +63,19 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 String account = loginAccount.getText().toString().trim();
                 String password = loginPassword.getText().toString().trim();
                 if (account == null || account.length() != 11){
-                    ToastU.showShort(LoginActivity.this , "请输入正确手机号");
+                    ToastU.showShort(LoginActivity.this , "请输入" +
+                            "手机号");
                     return;
                 }
                 if (password == null || password.length() <= 0){
                     ToastU.showShort(LoginActivity.this , "请输入密码");
                     return;
                 }
-                if (account.equals(ConstantsAPI.Login.ACCOUNT) && password.equals(ConstantsAPI.Login.PASSWORD)){
+                if (account.equals(userCache.userAccount) && password.equals(userCache.userPassword)){
+                    userCache.userAccount = account;
+                    userCache.userPassword = password;
+                    userCache.userIsLogin = true;
+                    userCache.save();
                     toMainActivity();
                 }else {
                     ToastU.showShort(LoginActivity.this , "账号或密码错误");

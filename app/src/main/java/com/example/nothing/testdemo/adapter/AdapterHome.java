@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.nothing.testdemo.R;
@@ -13,6 +14,7 @@ import com.example.nothing.testdemo.bean.BeanIcon;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterHome extends RecyclerView.Adapter<AdapterHome.RecyclerHome_VH> {
@@ -20,6 +22,7 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.RecyclerHome_V
     private List<BeanIcon> list;
     private Context context;
     private LayoutInflater inflater;
+    private HomeItemClick homeItemClick;
 
     public AdapterHome(List<BeanIcon> list, Context context) {
         this.list = list;
@@ -39,6 +42,13 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.RecyclerHome_V
         BeanIcon beanIcon = list.get(i);
         holder.homeRecyclerImg.setImageResource(beanIcon.getImgSrc());
         holder.homeRecyclerText.setText(beanIcon.getName());
+        holder.homeRecyclerContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (homeItemClick == null)return;
+                homeItemClick.onHomeItemClick(i);
+            }
+        });
     }
 
     @Override
@@ -50,11 +60,21 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.RecyclerHome_V
 
         private ImageView homeRecyclerImg;
         private TextView homeRecyclerText;
+        private LinearLayout homeRecyclerContainer;
 
         public RecyclerHome_VH(@NonNull View itemView) {
             super(itemView);
             homeRecyclerImg = itemView.findViewById(R.id.home_reycler_img);
             homeRecyclerText = itemView.findViewById(R.id.home_recycler_text);
+            homeRecyclerContainer = itemView.findViewById(R.id.home_recycler_container);
         }
+    }
+
+    public interface HomeItemClick{
+        void onHomeItemClick(int psn);
+    }
+
+    public void setOnHomeItemClickListener(HomeItemClick homeItemClickListener){
+        homeItemClick = homeItemClickListener;
     }
 }

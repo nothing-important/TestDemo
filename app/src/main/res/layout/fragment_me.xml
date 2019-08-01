@@ -60,7 +60,7 @@
         android:paddingLeft="@dimen/x50"
         android:paddingRight="@dimen/x50"
         android:layout_width="match_parent"
-        android:layout_marginTop="@dimen/x20"
+        android:layout_marginTop="@dimen/x26"
         android:layout_height="@dimen/x70"
         android:gravity="center_vertical"
         android:orientation="horizontal">
@@ -89,7 +89,7 @@
         android:paddingLeft="@dimen/x50"
         android:paddingRight="@dimen/x50"
         android:layout_width="match_parent"
-        android:layout_marginTop="@dimen/x20"
+        android:layout_marginTop="@dimen/x26"
         android:layout_height="@dimen/x70"
         android:gravity="center_vertical"
         android:orientation="horizontal">

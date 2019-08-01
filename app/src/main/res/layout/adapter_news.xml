@@ -17,7 +17,7 @@
             android:id="@+id/home_news_img"
             android:layout_width="@dimen/x198"
             android:layout_height="@dimen/x130"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             app:imageViewType="round"
             app:roundborderRadius="@dimen/x10"/>
         <LinearLayout

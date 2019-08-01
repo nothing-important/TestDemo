@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/bar_title"/>
+    <ImageView
+        android:layout_marginTop="@dimen/x219"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/app_icon"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="版本号：1.0"
+        android:textColor="#606060"
+        android:layout_marginTop="@dimen/x19"
+        android:textSize="@dimen/x24"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <LinearLayout
+        android:layout_marginBottom="@dimen/x34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="服务协议"
+            android:textColor="#033EDE"
+            android:textSize="@dimen/x24"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  和  "
+            android:textColor="#606060"
+            android:textSize="@dimen/x24"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="隐私协议"
+            android:textColor="#033EDE"
+            android:textSize="@dimen/x24"/>
+    </LinearLayout>
+    <TextView
+        android:layout_marginBottom="@dimen/x44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" @2014-2019BayData. All Rights Reserved"
+        android:textColor="#9B9898"
+        android:textSize="@dimen/x24"/>
+</LinearLayout>

@@ -1,16 +1,17 @@
 package com.example.nothing.testdemo.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.LinearLayout;
 
-import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.Indicators.PagerIndicator;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.example.nothing.testdemo.R;
+import com.example.nothing.testdemo.activity.AccessControlActivity;
+import com.example.nothing.testdemo.activity.FileControlActivity;
 import com.example.nothing.testdemo.adapter.AdapterHome;
 import com.example.nothing.testdemo.adapter.AdapterHomeNews;
 import com.example.nothing.testdemo.api.ConstantsAPI;
@@ -28,7 +29,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 
-public class HomeFragment extends BaseFragment implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
+public class HomeFragment extends BaseFragment implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener, AdapterHome.HomeItemClick {
 
     @BindView(R.id.home_slider)
     SliderLayout homeSlider;
@@ -78,6 +79,7 @@ public class HomeFragment extends BaseFragment implements BaseSliderView.OnSlide
         homeRecycler.setHasFixedSize(true);
         homeRecycler.setNestedScrollingEnabled(false);
         adapterHome = new AdapterHome(selectedIconData , getActivity());
+        adapterHome.setOnHomeItemClickListener(this);
         homeRecycler.setAdapter(adapterHome);
         LinearLayoutManager linearLayout = new LinearLayoutManager(getActivity());
         homeRecyclerNews.setLayoutManager(linearLayout);
@@ -117,5 +119,21 @@ public class HomeFragment extends BaseFragment implements BaseSliderView.OnSlide
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    @Override
+    public void onHomeItemClick(int psn) {
+        BeanIcon beanIcon = selectedIconData.get(psn);
+        String name = beanIcon.getName();
+        Intent intent = null;
+        if (name.equals("智慧门禁")){
+            intent = new Intent(getActivity() , AccessControlActivity.class);
+        }else if (name.equals("文件管理")){
+            intent = new Intent(getActivity() , FileControlActivity.class);
+        }
+        if (intent == null){
+            return;
+        }
+        startActivity(intent);
     }
 }

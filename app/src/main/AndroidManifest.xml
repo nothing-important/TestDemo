@@ -19,5 +19,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"/>
+        <activity android:name=".activity.AccessControlActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.MyKeyActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.FileControlActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.SettingActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.AccountActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.ChangePwdActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.AboutUsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.NoticeActivity"
+            android:screenOrientation="portrait"/>
     </application>
 </manifest>
