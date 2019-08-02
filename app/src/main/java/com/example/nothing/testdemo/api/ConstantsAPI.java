@@ -99,4 +99,13 @@ public class ConstantsAPI {
         return dataList;
     }
 
+    public static ArrayList<Integer> getSplashData(){
+        ArrayList<Integer> dataList = new ArrayList<>();
+        dataList.add(R.mipmap.bg_blue_circle);
+        dataList.add(R.mipmap.bg_car);
+        dataList.add(R.mipmap.bg_rect_blue);
+        dataList.add(R.mipmap.bg_round_blue_sms);
+        return dataList;
+    }
+
 }

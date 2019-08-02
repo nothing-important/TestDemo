@@ -19,6 +19,7 @@ public class UserCache extends BasicStorage {
     public boolean userIsFirstLogin;
     public boolean isVibrateOpen;
     public boolean isNoticeOpen;
+    public boolean userIsFirstOpen;
 
     /**
      * @param ctx
@@ -43,6 +44,7 @@ public class UserCache extends BasicStorage {
                 .putBoolean("userIsFirstLogin" , userIsFirstLogin)
                 .putBoolean("isVibrateOpen" , isVibrateOpen)
                 .putBoolean("isNoticeOpen" , isNoticeOpen)
+                .putBoolean("userIsFirstOpen" , userIsFirstOpen)
                 .commit();
     }
 
@@ -54,14 +56,18 @@ public class UserCache extends BasicStorage {
         userPassword = sp.getString("userPassword" , ConstantsAPI.Login.PASSWORD);
         isNoticeOpen = sp.getBoolean("isNoticeOpen" , true);
         isVibrateOpen = sp.getBoolean("isVibrateOpen" , true);
+        userIsFirstOpen = sp.getBoolean("userIsFirstOpen" , true);
     }
 
     @Override
     public void del(SharedPreferences sp) {
         sp.edit().remove("userIsLogin")
                 .remove("userIsFirstLogin")
-//                .remove("userAccount")
-//                .remove("userPassword")
+                .remove("userAccount")
+                .remove("userPassword")
+                .remove("userIsFirstOpen")
+                .remove("isNoticeOpen")
+                .remove("isVibrateOpen")
                 .commit();
     }
 
