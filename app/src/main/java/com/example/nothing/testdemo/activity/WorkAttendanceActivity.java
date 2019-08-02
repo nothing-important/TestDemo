@@ -65,9 +65,11 @@ public class WorkAttendanceActivity extends BaseActivity implements View.OnClick
                 break;
             case R.id.work_attendance:
                 switchFragment(0);
+                titleName.setText("考勤打卡");
                 break;
             case R.id.work_statistics:
                 switchFragment(1);
+                titleName.setText("统计");
                 break;
         }
     }

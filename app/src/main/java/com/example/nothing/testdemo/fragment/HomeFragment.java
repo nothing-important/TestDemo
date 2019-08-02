@@ -11,6 +11,7 @@ import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.example.nothing.testdemo.R;
 import com.example.nothing.testdemo.activity.AccessControlActivity;
+import com.example.nothing.testdemo.activity.DiningRoomActivity;
 import com.example.nothing.testdemo.activity.FileControlActivity;
 import com.example.nothing.testdemo.activity.PhoneActivity;
 import com.example.nothing.testdemo.activity.WorkAttendanceActivity;
@@ -136,6 +137,8 @@ public class HomeFragment extends BaseFragment implements BaseSliderView.OnSlide
             intent = new Intent(getActivity() , WorkAttendanceActivity.class);
         }else if (name.equals("通讯录")){
             intent = new Intent(getActivity() , PhoneActivity.class);
+        }else if (name.equals("智慧食堂")){
+            intent = new Intent(getActivity() , DiningRoomActivity.class);
         }
         if (intent == null){
             return;

@@ -1,10 +1,12 @@
 package com.example.nothing.testdemo.activity;
 
-import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nothing.testdemo.R;
 import com.example.nothing.testdemo.adapter.AdapterPhone;
@@ -14,32 +16,30 @@ import com.example.nothing.testdemo.base.BeanPhone;
 
 import java.util.List;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 
-public class PhoneActivity extends BaseActivity implements View.OnClickListener {
+public class DepartmentActivity extends BaseActivity implements View.OnClickListener {
 
     @BindView(R.id.title_back)
     ImageView titleBack;
     @BindView(R.id.title_name)
     TextView titleName;
-    @BindView(R.id.phone_mine)
-    LinearLayout phoneMine;
+//    @BindView(R.id.phone_mine)
+//    LinearLayout phoneMine;
     @BindView(R.id.phone_recycler)
     RecyclerView phoneRecycler;
     private List<BeanPhone> phoneList;
 
     @Override
     protected int setLayoutId() {
-        return R.layout.activity_phone;
+        return R.layout.activity_phone_mine;
     }
 
     @Override
     protected void initView() {
         titleBack.setVisibility(View.VISIBLE);
         titleName.setVisibility(View.VISIBLE);
-        titleName.setText("通讯录");
+        titleName.setText("我的部门");
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         phoneRecycler.setLayoutManager(linearLayoutManager);
         AdapterPhone adapterPhone = new AdapterPhone(this , phoneList);
@@ -48,13 +48,12 @@ public class PhoneActivity extends BaseActivity implements View.OnClickListener 
 
     @Override
     protected void initData() {
-        phoneList = ConstantsAPI.getPhoneData();
+        phoneList = ConstantsAPI.getDepartmentData();
     }
 
     @Override
     protected void setListener() {
         titleBack.setOnClickListener(this);
-        phoneMine.setOnClickListener(this);
     }
 
     @Override
@@ -62,9 +61,6 @@ public class PhoneActivity extends BaseActivity implements View.OnClickListener 
         switch (v.getId()){
             case R.id.title_back:
                 finish();
-                break;
-            case R.id.phone_mine:
-                startActivity(new Intent(PhoneActivity.this , DepartmentActivity.class));
                 break;
         }
     }

@@ -81,5 +81,22 @@ public class ConstantsAPI {
         return dataList;
     }
 
+    public static ArrayList<BeanPhone> getDepartmentData(){
+        ArrayList<BeanPhone> dataList = new ArrayList<>();
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        dataList.add(new BeanPhone(false , "李忠志" , "15711111111"));
+        return dataList;
+    }
 
 }

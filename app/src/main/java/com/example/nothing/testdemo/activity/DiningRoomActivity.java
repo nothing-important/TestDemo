@@ -9,7 +9,7 @@ import com.example.nothing.testdemo.base.BaseActivity;
 
 import butterknife.BindView;
 
-public class MyKeyActivity extends BaseActivity {
+public class DiningRoomActivity extends BaseActivity implements View.OnClickListener {
 
     @BindView(R.id.title_back)
     ImageView titleBack;
@@ -18,14 +18,14 @@ public class MyKeyActivity extends BaseActivity {
 
     @Override
     protected int setLayoutId() {
-        return R.layout.activity_mykey;
+        return R.layout.activity_dining_room;
     }
 
     @Override
     protected void initView() {
         titleBack.setVisibility(View.VISIBLE);
         titleName.setVisibility(View.VISIBLE);
-        titleName.setText("我的钥匙");
+        titleName.setText("智慧食堂");
     }
 
     @Override
@@ -35,6 +35,15 @@ public class MyKeyActivity extends BaseActivity {
 
     @Override
     protected void setListener() {
+        titleBack.setOnClickListener(this);
+    }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.title_back:
+                finish();
+                break;
+        }
     }
 }

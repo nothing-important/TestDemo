@@ -42,5 +42,9 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".activity.PhoneActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".activity.DepartmentActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.DiningRoomActivity"
+            android:screenOrientation="portrait"/>
     </application>
 </manifest>

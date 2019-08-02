@@ -1,9 +1,11 @@
 package com.example.nothing.testdemo.fragment;
 
 import android.content.Context;
+import android.os.Build;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -55,6 +57,7 @@ public class AttendanceFragment extends BaseFragment {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     public void setTabLine(Context context, TabLayout tab, int left, int right) {
         try {
             Class<?> tablayout = tab.getClass();
