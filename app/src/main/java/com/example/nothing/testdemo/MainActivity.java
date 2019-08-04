@@ -36,6 +36,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void initView() {
         showFirstFragment();
+        mainHome.setChecked(true);
     }
 
     @Override

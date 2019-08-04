@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.nothing.testdemo.R;
@@ -54,7 +55,7 @@ public class AdapterHomeNews extends RecyclerView.Adapter<AdapterHomeNews.Adapte
 
     static class AdapterHomeNews_VH extends RecyclerView.ViewHolder{
 
-        private RoundImageView homeNewsImg;
+        private ImageView homeNewsImg;
         private TextView homeNewsName , homeNewsDesc , homeNewsSee , homeNewsTime;
 
         public AdapterHomeNews_VH(@NonNull View itemView) {
