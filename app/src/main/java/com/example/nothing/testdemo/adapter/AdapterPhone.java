@@ -20,6 +20,7 @@ public class AdapterPhone extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     private Context context;
     private List<BeanPhone> list;
     private LayoutInflater inflater;
+    private PhoneClick phoneClick;
 
     public AdapterPhone(Context context, List<BeanPhone> list) {
         this.context = context;
@@ -57,6 +58,13 @@ public class AdapterPhone extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             }else {
                 ((AdapterPhoneNormal)holder).phone_normal_line.setVisibility(View.VISIBLE);
             }
+            ((AdapterPhoneNormal)holder).phoneNormalContainer.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (phoneClick == null)return;
+                    phoneClick.onPhoneClick(position);
+                }
+            });
         }
     }
 
@@ -97,5 +105,13 @@ public class AdapterPhone extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             phoneNormalName = itemView.findViewById(R.id.phone_normal_name);
             phone_normal_line = itemView.findViewById(R.id.phone_normal_line);
         }
+    }
+
+    public interface PhoneClick{
+        void onPhoneClick(int psn);
+    }
+
+    public void setOnPhoneClick(PhoneClick phoneClick){
+        this.phoneClick = phoneClick;
     }
 }

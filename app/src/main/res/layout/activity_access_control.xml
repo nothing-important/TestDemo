@@ -4,13 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <include layout="@layout/bar_title"/>
-    <ImageView
-        android:layout_marginTop="@dimen/x18"
-        android:layout_marginLeft="@dimen/x60"
-        android:layout_marginRight="@dimen/x60"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/y869"
-        android:background="#000"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginTop="@dimen/x18"
+            android:layout_marginLeft="@dimen/x60"
+            android:layout_marginRight="@dimen/x60"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y869"
+            android:src="@mipmap/icon_access"/>
+        <TextView
+            android:id="@+id/access_key"
+            android:layout_width="@dimen/x60"
+            android:layout_height="@dimen/x60"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/x54"/>
+    </RelativeLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

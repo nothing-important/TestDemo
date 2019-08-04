@@ -7,6 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.nothing.testdemo.R;
+import com.example.nothing.testdemo.api.MyApplication;
 import com.example.nothing.testdemo.base.BaseActivity;
 
 import butterknife.BindView;
@@ -59,6 +60,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 finish();
                 break;
             case R.id.setting_logout:
+                MyApplication.finishAllActivity();
                 Intent intent = new Intent(SettingActivity.this , LoginActivity.class);
                 startActivity(intent);
                 break;

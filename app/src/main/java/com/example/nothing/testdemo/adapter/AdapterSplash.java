@@ -10,16 +10,17 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.example.nothing.testdemo.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class AdapterSplash extends PagerAdapter {
 
-    private List<Integer> list;
+    private List<String> list;
     private Context context;
     private LayoutInflater inflater;
 
-    public AdapterSplash(List<Integer> list, Context context) {
+    public AdapterSplash(List<String> list, Context context) {
         this.list = list;
         this.context = context;
         inflater = LayoutInflater.from(context);
@@ -40,7 +41,7 @@ public class AdapterSplash extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         View view = inflater.inflate(R.layout.adapter_splash_view , container , false);
         ImageView imageView = view.findViewById(R.id.splash_item_img);
-        imageView.setImageResource(list.get(position));
+        Picasso.with(context).load(list.get(position)).into(imageView);
         container.addView(view);
         return view;
     }

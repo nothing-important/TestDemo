@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#F6F8FA"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/bar_title" />
+    <RelativeLayout
+        android:layout_marginTop="@dimen/x30"
+        android:layout_marginLeft="@dimen/x60"
+        android:layout_marginRight="@dimen/x60"
+        android:layout_width="match_parent"
+        android:background="@mipmap/icon_address"
+        android:layout_height="@dimen/y808">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="致远科技有限公司"
+            android:textSize="@dimen/x34"
+            android:textColor="#494949"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/x53"
+            android:layout_centerHorizontal="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="北京市海淀区"
+            android:textSize="@dimen/x24"
+            android:textColor="#989898"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+</LinearLayout>

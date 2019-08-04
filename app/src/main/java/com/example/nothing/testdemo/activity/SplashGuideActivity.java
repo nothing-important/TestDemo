@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.util.DisplayMetrics;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.WindowManager;
+import android.widget.ImageView;
 
 import androidx.viewpager.widget.ViewPager;
 
@@ -22,7 +24,15 @@ public class SplashGuideActivity extends BaseActivity implements ViewPager.OnPag
 
     @BindView(R.id.splash_viewpager)
     ViewPager splashViewpager;
-    private List<Integer> dataList;
+    @BindView(R.id.splash_indicator_one)
+    ImageView splashIndicatorOne;
+    @BindView(R.id.splash_indicator_two)
+    ImageView splashIndicatorTwo;
+    @BindView(R.id.splash_indicator_three)
+    ImageView splashIndicatorThree;
+    @BindView(R.id.splash_indicator_four)
+    ImageView splashIndicatorFour;
+    private List<String> dataList;
     private GestureDetector mGestureDetector;
     private int currentItem = 0;
     private int flaggingWidth = 0;
@@ -35,10 +45,16 @@ public class SplashGuideActivity extends BaseActivity implements ViewPager.OnPag
 
     @Override
     protected void initView() {
+        getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN ,
+                WindowManager.LayoutParams. FLAG_FULLSCREEN);
         AdapterSplash adapterSplash = new AdapterSplash(dataList , this);
         splashViewpager.setAdapter(adapterSplash);
         splashViewpager.setOnPageChangeListener(this);
         slipToMain();
+    }
+
+    @Override
+    public void setStatusBarColor() {
     }
 
     @Override
@@ -87,6 +103,21 @@ public class SplashGuideActivity extends BaseActivity implements ViewPager.OnPag
     @Override
     public void onPageSelected(int position) {
         currentItem = position;
+        clearAllPoint();
+        switch (position){
+            case 0:
+                setSelectPoint(splashIndicatorOne);
+                break;
+            case 1:
+                setSelectPoint(splashIndicatorTwo);
+                break;
+            case 2:
+                setSelectPoint(splashIndicatorThree);
+                break;
+            case 3:
+                setSelectPoint(splashIndicatorFour);
+                break;
+        }
     }
 
     @Override
@@ -97,8 +128,32 @@ public class SplashGuideActivity extends BaseActivity implements ViewPager.OnPag
     private void toMainActivity(){
         userCache.userIsFirstOpen = false;
         userCache.save();
-        Intent intent = new Intent(SplashGuideActivity.this, MainActivity.class);
+        Intent intent = new Intent(SplashGuideActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        mGestureDetector.onTouchEvent(event);
+        return super.onTouchEvent(event);
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (mGestureDetector.onTouchEvent(ev)){
+            ev.setAction(MotionEvent.ACTION_CANCEL);
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+
+    private void clearAllPoint(){
+        splashIndicatorOne.setBackgroundResource(R.drawable.circle_point_grey);
+        splashIndicatorThree.setBackgroundResource(R.drawable.circle_point_grey);
+        splashIndicatorTwo.setBackgroundResource(R.drawable.circle_point_grey);
+        splashIndicatorFour.setBackgroundResource(R.drawable.circle_point_grey);
+    }
+    private void setSelectPoint(ImageView imageView){
+        imageView.setBackgroundResource(R.drawable.circle_point_white);
     }
 }

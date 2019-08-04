@@ -7,6 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.nothing.testdemo.R;
+import com.example.nothing.testdemo.activity.AddressActivity;
 import com.example.nothing.testdemo.activity.SettingActivity;
 import com.example.nothing.testdemo.base.BaseFragment;
 
@@ -55,7 +56,8 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
 
                 break;
             case R.id.me_address:
-
+                Intent intent1 = new Intent(getActivity() , AddressActivity.class);
+                startActivity(intent1);
                 break;
             case R.id.me_setting:
                 Intent intent = new Intent(getActivity() , SettingActivity.class);

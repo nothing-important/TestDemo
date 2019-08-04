@@ -4,9 +4,11 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-
+    <color name="wheelwhindo_color">#40000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="color_49">#494949</color>
     <color name="color_C1BEBE">#C1BEBE</color>
     <color name="color_9B9999">#9B9999</color>
+
+    <color name="gray_wheel_cancel">#878585</color>
 </resources>

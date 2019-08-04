@@ -2,7 +2,7 @@ package com.example.nothing.testdemo.bean;
 
 public class BeanNews {
 
-    private String imgSrc;
+    private int imgSrc;
     private String title;
     private String desc;
     private String seeCount;
@@ -11,7 +11,7 @@ public class BeanNews {
     public BeanNews() {
     }
 
-    public BeanNews(String imgSrc, String title, String desc, String seeCount, String time) {
+    public BeanNews(int imgSrc, String title, String desc, String seeCount, String time) {
         this.imgSrc = imgSrc;
         this.title = title;
         this.desc = desc;
@@ -19,11 +19,11 @@ public class BeanNews {
         this.time = time;
     }
 
-    public String getImgSrc() {
+    public int getImgSrc() {
         return imgSrc;
     }
 
-    public void setImgSrc(String imgSrc) {
+    public void setImgSrc(int imgSrc) {
         this.imgSrc = imgSrc;
     }
 

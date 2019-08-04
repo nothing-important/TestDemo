@@ -80,6 +80,7 @@
                 android:textSize="@dimen/x24"
                 android:text="照片"/>
             <ImageView
+                android:id="@+id/attendance_out_camera"
                 android:layout_gravity="center_vertical"
                 android:layout_width="@dimen/x53"
                 android:layout_height="@dimen/x53"

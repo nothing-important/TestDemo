@@ -1,5 +1,6 @@
 package com.example.nothing.testdemo.activity;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,6 +16,8 @@ public class AccessControlActivity extends BaseActivity implements View.OnClickL
     ImageView titleBack;
     @BindView(R.id.title_name)
     TextView titleName;
+    @BindView(R.id.access_key)
+    TextView accessKey;
 
     @Override
     protected int setLayoutId() {
@@ -36,6 +39,7 @@ public class AccessControlActivity extends BaseActivity implements View.OnClickL
     @Override
     protected void setListener() {
         titleBack.setOnClickListener(this);
+        accessKey.setOnClickListener(this);
     }
 
     @Override
@@ -43,6 +47,9 @@ public class AccessControlActivity extends BaseActivity implements View.OnClickL
         switch (v.getId()){
             case R.id.title_back:
                 finish();
+                break;
+            case R.id.access_key:
+                startActivity(new Intent(AccessControlActivity.this , MyKeyActivity.class));
                 break;
         }
     }

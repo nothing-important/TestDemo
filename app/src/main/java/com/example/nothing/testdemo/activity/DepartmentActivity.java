@@ -1,5 +1,6 @@
 package com.example.nothing.testdemo.activity;
 
+import android.Manifest;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -13,12 +14,13 @@ import com.example.nothing.testdemo.adapter.AdapterPhone;
 import com.example.nothing.testdemo.api.ConstantsAPI;
 import com.example.nothing.testdemo.base.BaseActivity;
 import com.example.nothing.testdemo.base.BeanPhone;
+import com.example.nothing.testdemo.utils.CommonUtils;
 
 import java.util.List;
 
 import butterknife.BindView;
 
-public class DepartmentActivity extends BaseActivity implements View.OnClickListener {
+public class DepartmentActivity extends BaseActivity implements View.OnClickListener, AdapterPhone.PhoneClick {
 
     @BindView(R.id.title_back)
     ImageView titleBack;
@@ -43,6 +45,7 @@ public class DepartmentActivity extends BaseActivity implements View.OnClickList
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         phoneRecycler.setLayoutManager(linearLayoutManager);
         AdapterPhone adapterPhone = new AdapterPhone(this , phoneList);
+        adapterPhone.setOnPhoneClick(this);
         phoneRecycler.setAdapter(adapterPhone);
     }
 
@@ -63,5 +66,20 @@ public class DepartmentActivity extends BaseActivity implements View.OnClickList
                 finish();
                 break;
         }
+    }
+
+    @Override
+    public void onPhoneClick(int psn) {
+        requestSelfPermissions(new String[]{Manifest.permission.CALL_PHONE}, 11, new PermissionRequestListener() {
+            @Override
+            public void onPermissionGranted(List<String> allGrantedPermission) {
+                CommonUtils.diallPhone(phoneList.get(psn).getPhone() , DepartmentActivity.this);
+            }
+
+            @Override
+            public void onPermissionDenied(List<String> deniedPermissions) {
+                showSettingDialog(DepartmentActivity.this);
+            }
+        });
     }
 }

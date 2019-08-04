@@ -31,6 +31,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     ImageView loginHide;
     @BindView(R.id.login_login)
     TextView loginLogin;
+    @BindView(R.id.login_forget)
+    TextView loginForget;
     private boolean isHide = true;
     private UserCache userCache;
 
@@ -54,6 +56,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         loginLogin.setOnClickListener(this);
         loginJump.setOnClickListener(this);
         loginHide.setOnClickListener(this);
+        loginForget.setOnClickListener(this);
     }
 
     @Override
@@ -92,12 +95,16 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             case R.id.login_jump:
                 toMainActivity();
                 break;
+            case R.id.login_forget:
+
+                break;
         }
     }
 
     private void toMainActivity(){
         Intent intent = new Intent(this , MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
 }

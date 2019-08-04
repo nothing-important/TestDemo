@@ -11,8 +11,10 @@ import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.example.nothing.testdemo.R;
 import com.example.nothing.testdemo.activity.AccessControlActivity;
+import com.example.nothing.testdemo.activity.CarActivity;
 import com.example.nothing.testdemo.activity.DiningRoomActivity;
 import com.example.nothing.testdemo.activity.FileControlActivity;
+import com.example.nothing.testdemo.activity.MoreActivity;
 import com.example.nothing.testdemo.activity.PhoneActivity;
 import com.example.nothing.testdemo.activity.WorkAttendanceActivity;
 import com.example.nothing.testdemo.adapter.AdapterHome;
@@ -43,7 +45,7 @@ public class HomeFragment extends BaseFragment implements BaseSliderView.OnSlide
     @BindView(R.id.home_recycler_news)
     RecyclerView homeRecyclerNews;
 
-    private HashMap<String , String> sliderData = new HashMap<>();
+    private HashMap<String , Integer> sliderData = new HashMap<>();
     private AdapterHome adapterHome;
     private AdapterHomeNews adapterHomeNews;
     private List<BeanIcon> selectedIconData = new ArrayList<>();
@@ -81,7 +83,7 @@ public class HomeFragment extends BaseFragment implements BaseSliderView.OnSlide
         homeRecycler.setLayoutManager(gridLayoutManager);
         homeRecycler.setHasFixedSize(true);
         homeRecycler.setNestedScrollingEnabled(false);
-        adapterHome = new AdapterHome(selectedIconData , getActivity());
+        adapterHome = new AdapterHome(selectedIconData , getActivity() , false);
         adapterHome.setOnHomeItemClickListener(this);
         homeRecycler.setAdapter(adapterHome);
         LinearLayoutManager linearLayout = new LinearLayoutManager(getActivity());
@@ -139,7 +141,12 @@ public class HomeFragment extends BaseFragment implements BaseSliderView.OnSlide
             intent = new Intent(getActivity() , PhoneActivity.class);
         }else if (name.equals("智慧食堂")){
             intent = new Intent(getActivity() , DiningRoomActivity.class);
+        }else if (name.equals("智慧停车")){
+            intent = new Intent(getActivity() , CarActivity.class);
+        }else if (name.equals("更多")){
+            intent = new Intent(getActivity() , MoreActivity.class);
         }
+
         if (intent == null){
             return;
         }

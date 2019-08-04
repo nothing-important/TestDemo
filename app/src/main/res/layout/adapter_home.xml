@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:gravity="center"
     android:id="@+id/home_recycler_container"
-    android:paddingTop="@dimen/x25"
     android:paddingBottom="@dimen/x25"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <ImageView
+        android:layout_marginTop="@dimen/x25"
+        android:layout_centerHorizontal="true"
         android:id="@+id/home_reycler_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/icon_home_lock"/>
+        android:layout_width="@dimen/x50"
+        android:layout_height="@dimen/x50"
+        android:scaleType="centerInside"
+        android:src="@mipmap/icon_more_lock"/>
     <TextView
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/home_reycler_img"
         android:id="@+id/home_recycler_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,4 +24,14 @@
         android:layout_marginTop="@dimen/x10"
         android:textSize="@dimen/x24"
         android:textColor="#606060"/>
-</LinearLayout>
+    <ImageView
+        android:visibility="visible"
+        android:id="@+id/home_recycler_button"
+        android:layout_marginTop="@dimen/x10"
+        android:layout_toRightOf="@id/home_reycler_img"
+        android:layout_marginLeft="@dimen/x26"
+        android:layout_width="@dimen/x40"
+        android:layout_height="@dimen/x40"
+        android:scaleType="centerInside"
+        android:src="@mipmap/icon_more_delete"/>
+</RelativeLayout>

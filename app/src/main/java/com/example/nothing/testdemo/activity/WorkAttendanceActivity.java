@@ -43,6 +43,7 @@ public class WorkAttendanceActivity extends BaseActivity implements View.OnClick
         titleName.setVisibility(View.VISIBLE);
         titleName.setText("考勤打卡");
         showFirstFragment();
+        workAttendance.setChecked(true);
     }
 
     @Override
