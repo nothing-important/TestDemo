@@ -1,129 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+    android:scrollbars="none"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ImageView
-        android:layout_marginLeft="-30dp"
-        android:layout_marginRight="-30dp"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/x399"
-        android:src="@mipmap/atten_out_bg"
-        android:scaleType="fitXY"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/x419"
-        android:layout_marginTop="-110dp"
-        android:orientation="vertical"
-        android:background="@mipmap/atten_out_shadow"
-        android:paddingLeft="@dimen/x70"
-        android:gravity="center_horizontal"
-        android:paddingRight="@dimen/x70">
-        <TextView
-            android:layout_marginTop="@dimen/x101"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#494949"
-            android:textSize="@dimen/x24"
-            android:text="西直门"/>
-        <TextView
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_marginLeft="-30dp"
+            android:layout_marginRight="-30dp"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/x1"
-            android:background="#BFBFBF"
-            android:layout_marginTop="@dimen/x24"/>
+            android:layout_height="@dimen/x399"
+            android:src="@mipmap/atten_out_bg"
+            android:scaleType="fitXY"/>
         <LinearLayout
-            android:paddingLeft="@dimen/x30"
-            android:paddingRight="@dimen/x30"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/x72"
-            android:orientation="horizontal">
+            android:layout_height="@dimen/x419"
+            android:layout_marginTop="-110dp"
+            android:orientation="vertical"
+            android:background="@mipmap/atten_out_shadow"
+            android:paddingLeft="@dimen/x70"
+            android:gravity="center_horizontal"
+            android:paddingRight="@dimen/x70">
             <TextView
-                android:gravity="center"
+                android:layout_marginTop="@dimen/x101"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:textColor="#828282"
+                android:layout_height="wrap_content"
+                android:textColor="#494949"
                 android:textSize="@dimen/x24"
-                android:text="外出事由"/>
+                android:text="西直门"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:background="#BFBFBF"
+                android:layout_marginTop="@dimen/x24"/>
+            <LinearLayout
+                android:paddingLeft="@dimen/x30"
+                android:paddingRight="@dimen/x30"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x72"
+                android:orientation="horizontal">
+                <TextView
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="#828282"
+                    android:textSize="@dimen/x24"
+                    android:text="外出事由"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#F20808"
+                    android:gravity="center"
+                    android:textSize="@dimen/x24"
+                    android:text="*"/>
+                <EditText
+                    android:layout_marginLeft="@dimen/x20"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:gravity="right|center_vertical"
+                    android:hint="请简述外出事由"
+                    android:textColorHint="#B4B4B4"
+                    android:textSize="@dimen/x24"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:background="#BFBFBF" />
+            <LinearLayout
+                android:paddingLeft="@dimen/x30"
+                android:paddingRight="@dimen/x30"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x72"
+                android:orientation="horizontal">
+                <TextView
+                    android:gravity="center_vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:textColor="#828282"
+                    android:textSize="@dimen/x24"
+                    android:text="照片"/>
+                <ImageView
+                    android:id="@+id/attendance_out_camera"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="@dimen/x53"
+                    android:layout_height="@dimen/x53"
+                    android:src="@mipmap/icon_camera"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:background="#BFBFBF" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="-46dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="@dimen/x388"
+            android:layout_height="@dimen/x388"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:background="@mipmap/bg_blue_circle">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#F20808"
-                android:gravity="center"
-                android:textSize="@dimen/x24"
-                android:text="*"/>
-            <EditText
-                android:layout_marginLeft="@dimen/x20"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@null"
-                android:gravity="right|center_vertical"
-                android:hint="请简述外出事由"
-                android:textColorHint="#B4B4B4"
-                android:textSize="@dimen/x24"/>
-        </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/x1"
-            android:background="#BFBFBF" />
-        <LinearLayout
-            android:paddingLeft="@dimen/x30"
-            android:paddingRight="@dimen/x30"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/x72"
-            android:orientation="horizontal">
+                android:text="上班打卡"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/x140"
+                android:textSize="@dimen/x28"/>
             <TextView
-                android:gravity="center_vertical"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:textColor="#828282"
-                android:textSize="@dimen/x24"
-                android:text="照片"/>
-            <ImageView
-                android:id="@+id/attendance_out_camera"
-                android:layout_gravity="center_vertical"
-                android:layout_width="@dimen/x53"
-                android:layout_height="@dimen/x53"
-                android:src="@mipmap/icon_camera"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9:56:38"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/x10"
+                android:textSize="@dimen/x28"/>
         </LinearLayout>
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/x1"
-            android:background="#BFBFBF" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_marginTop="-46dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_width="@dimen/x388"
-        android:layout_height="@dimen/x388"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:background="@mipmap/bg_blue_circle">
-        <TextView
+            android:layout_marginTop="-20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="上班打卡"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:layout_marginTop="@dimen/x160"
-            android:textSize="@dimen/x28"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="9:56:38"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:layout_marginTop="@dimen/x10"
-            android:textSize="@dimen/x28"/>
+            android:drawableLeft="@mipmap/icon_wenhao"
+            android:text="查看考勤规则"
+            android:textColor="#828282"
+            android:textSize="@dimen/x20"
+            android:layout_gravity="center_horizontal"
+            android:drawablePadding="@dimen/x10"/>
     </LinearLayout>
-    <TextView
-        android:layout_marginTop="-20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@mipmap/icon_wenhao"
-        android:text="查看考勤规则"
-        android:textColor="#828282"
-        android:textSize="@dimen/x20"
-        android:layout_gravity="center_horizontal"
-        android:drawablePadding="@dimen/x10"/>
-</LinearLayout>
+</ScrollView>

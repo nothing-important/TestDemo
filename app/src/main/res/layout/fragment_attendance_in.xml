@@ -1,80 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+    android:scrollbars="none"
     android:paddingTop="@dimen/x50"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_marginLeft="@dimen/x53"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_marginLeft="@dimen/x53"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/point_blue"
+                    android:text="上班时间 10:00"
+                    android:textColor="#828282"
+                    android:textSize="@dimen/x24"/>
+                <TextView
+                    android:layout_marginLeft="@dimen/x6"
+                    android:layout_width="@dimen/x1"
+                    android:layout_height="@dimen/x508"
+                    android:background="#BFBFBF"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/point_gray"
+                    android:text="下班时间 16:00"
+                    android:textColor="#828282"
+                    android:textSize="@dimen/x24"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_centerInParent="true"
+                android:layout_marginTop="-46dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="@dimen/x388"
+                android:layout_height="@dimen/x388"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:background="@mipmap/bg_blue_circle">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="上班打卡"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/x140"
+                    android:textSize="@dimen/x28"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9:56:38"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/x10"
+                    android:textSize="@dimen/x28"/>
+                <TextView
+                    android:layout_marginTop="@dimen/x100"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/icon_duigou"
+                    android:text="您已进入考勤范围"
+                    android:textSize="@dimen/x20"
+                    android:textColor="#828282"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <TextView
+            android:layout_marginTop="@dimen/x146"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@mipmap/point_blue"
-                android:text="上班时间 10:00"
-                android:textColor="#828282"
-                android:textSize="@dimen/x24"/>
-            <TextView
-                android:layout_marginLeft="@dimen/x6"
-                android:layout_width="@dimen/x1"
-                android:layout_height="@dimen/x508"
-                android:background="#BFBFBF"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@mipmap/point_gray"
-                android:text="下班时间 16:00"
-                android:textColor="#828282"
-                android:textSize="@dimen/x24"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_centerInParent="true"
-            android:layout_marginTop="-46dp"
+            android:drawableLeft="@mipmap/icon_wenhao"
+            android:text="查看考勤规则"
+            android:textColor="#828282"
+            android:textSize="@dimen/x20"
             android:layout_gravity="center_horizontal"
-            android:layout_width="@dimen/x388"
-            android:layout_height="@dimen/x388"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:background="@mipmap/bg_blue_circle">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="上班打卡"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:layout_marginTop="@dimen/x160"
-                android:textSize="@dimen/x28"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="9:56:38"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:layout_marginTop="@dimen/x10"
-                android:textSize="@dimen/x28"/>
-            <TextView
-                android:layout_marginTop="@dimen/x100"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@mipmap/icon_duigou"
-                android:text="您已进入考勤范围"
-                android:textSize="@dimen/x20"
-                android:textColor="#828282"/>
-        </LinearLayout>
-    </RelativeLayout>
-    <TextView
-        android:layout_marginTop="@dimen/x146"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@mipmap/icon_wenhao"
-        android:text="查看考勤规则"
-        android:textColor="#828282"
-        android:textSize="@dimen/x20"
-        android:layout_gravity="center_horizontal"
-        android:drawablePadding="@dimen/x10"/>
-</LinearLayout>
+            android:drawablePadding="@dimen/x10"/>
+    </LinearLayout>
+</ScrollView>
