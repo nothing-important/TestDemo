@@ -128,9 +128,17 @@ public class SplashGuideActivity extends BaseActivity implements ViewPager.OnPag
     private void toMainActivity(){
         userCache.userIsFirstOpen = false;
         userCache.save();
-        Intent intent = new Intent(SplashGuideActivity.this, LoginActivity.class);
-        startActivity(intent);
-        finish();
+        if (userCache.userIsLogin){
+            Intent intent = new Intent(SplashGuideActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }else {
+            userCache.userIsLogin = true;
+            userCache.save();
+            Intent intent = new Intent(SplashGuideActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     @Override
