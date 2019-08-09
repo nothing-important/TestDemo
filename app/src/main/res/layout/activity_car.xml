@@ -192,6 +192,7 @@
         android:layout_marginTop="@dimen/x53"
         />
     <TextView
+        android:id="@+id/car_confirm"
         android:layout_marginTop="@dimen/x40"
         android:layout_width="match_parent"
         android:layout_height="@dimen/x116"

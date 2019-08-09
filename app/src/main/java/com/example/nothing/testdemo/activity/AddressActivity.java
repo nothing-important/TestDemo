@@ -9,12 +9,12 @@ import com.example.nothing.testdemo.base.BaseActivity;
 
 import butterknife.BindView;
 
-public class AddressActivity extends BaseActivity {
+public class AddressActivity extends BaseActivity implements View.OnClickListener {
 
     @BindView(R.id.title_back)
-    ImageView titlBack;
+    ImageView titleBack;
     @BindView(R.id.title_name)
-    TextView titlName;
+    TextView titleName;
 
     @Override
     protected int setLayoutId() {
@@ -23,9 +23,9 @@ public class AddressActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        titlBack.setVisibility(View.VISIBLE);
-        titlName.setVisibility(View.VISIBLE);
-        titlName.setText("我的地址");
+        titleBack.setVisibility(View.VISIBLE);
+        titleName.setVisibility(View.VISIBLE);
+        titleName.setText("我的地址");
     }
 
     @Override
@@ -35,6 +35,15 @@ public class AddressActivity extends BaseActivity {
 
     @Override
     protected void setListener() {
+        titleBack.setOnClickListener(this);
+    }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.title_back:
+                finish();
+                break;
+        }
     }
 }
