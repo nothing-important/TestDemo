@@ -36,6 +36,7 @@
             android:layout_marginTop="@dimen/x35"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/file_shouce"
         android:layout_marginTop="@dimen/x30"
         android:layout_width="match_parent"
         android:layout_height="@dimen/x138"
@@ -64,6 +65,7 @@
             android:src="@mipmap/icon_download"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/file_beian"
         android:layout_marginTop="@dimen/x20"
         android:layout_width="match_parent"
         android:layout_height="@dimen/x138"
