@@ -1,26 +1,40 @@
 package com.example.nothing.testdemo.fragment;
 
-import com.example.nothing.testdemo.R;
-import com.example.nothing.testdemo.base.BaseFragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-public class DriveFragment extends BaseFragment {
+import com.example.nothing.testdemo.api.UnityConstants;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+public class DriveFragment extends Fragment {
+
+    private View playerView;
+
+    @Nullable
     @Override
-    protected int setLayoutId() {
-        return R.layout.fragment_drive;
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        playerView = UnityConstants.unityPlayer.getView();
+        if(playerView.getParent() != null){
+            ((ViewGroup)playerView.getParent()).removeAllViews();
+        }
+        playerView.getViewTreeObserver().addOnWindowFocusChangeListener(hasFocus -> UnityConstants.unityPlayer.windowFocusChanged(hasFocus));
+        return playerView;
     }
 
     @Override
-    protected void initView() {
-
+    public void onResume() {
+        UnityConstants.unityPlayer.resume();
+        super.onResume();
     }
 
     @Override
-    protected void initData() {
-
-    }
-
-    @Override
-    protected void setListener() {
-
+    public void onPause() {
+        UnityConstants.unityPlayer.pause();
+        super.onPause();
     }
 }

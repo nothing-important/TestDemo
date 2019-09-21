@@ -1,14 +1,18 @@
 package com.example.nothing.testdemo;
 
 
+import android.content.res.Configuration;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 
+import com.example.nothing.testdemo.api.UnityConstants;
 import com.example.nothing.testdemo.base.BaseActivity;
 import com.example.nothing.testdemo.fragment.DriveFragment;
 import com.example.nothing.testdemo.fragment.HomeFragment;
 import com.example.nothing.testdemo.fragment.MeFragment;
+import com.unity3d.player.UnityPlayer;
 
 import androidx.fragment.app.FragmentTransaction;
 import butterknife.BindView;
@@ -41,6 +45,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initData() {
+        initUnity();
     }
 
     @Override
@@ -126,4 +131,48 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
         fragmentTransaction.commit();
     }
+
+    private void initUnity() {
+        UnityConstants.unityPlayer = new UnityPlayer(this);
+        int glesMode = UnityConstants.unityPlayer.getSettings().getInt("gles_mode", 1);
+        UnityConstants.unityPlayer.init(glesMode, false);
+    }
+
+    @Override
+    protected void onDestroy() {
+        UnityConstants.unityPlayer.quit();
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onResume() {
+        UnityConstants.unityPlayer.resume();
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        UnityConstants.unityPlayer.pause();
+        super.onPause();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        UnityConstants.unityPlayer.configurationChanged(newConfig);
+        super.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        UnityConstants.unityPlayer.windowFocusChanged(hasFocus);
+        super.onWindowFocusChanged(hasFocus);
+    }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_MULTIPLE)
+            return UnityConstants.unityPlayer.onKeyMultiple(event.getKeyCode(), event.getRepeatCount(), event);
+        return super.dispatchKeyEvent(event);
+    }
+
 }
