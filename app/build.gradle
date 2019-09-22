@@ -17,6 +17,9 @@ android {
             targetCompatibility JavaVersion.VERSION_1_8
 
         }
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
     }
     buildTypes {
         release {
@@ -39,6 +42,11 @@ android {
         exclude 'META-INF/androidx.core_core.version'
         exclude 'META-INF/androidx.versionedparcelable_versionedparcelable.version'
 
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
     }
 }
 

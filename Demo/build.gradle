@@ -21,7 +21,8 @@ allprojects {
 apply plugin: 'com.android.library'
 
 dependencies {
-	implementation fileTree(include: ['*.jar'], dir: 'libs')
+	//implementation fileTree(include: ['*.jar'], dir: 'libs')
+	compileOnly files('libs/unity-classes.jar')
 }
 
 android {
